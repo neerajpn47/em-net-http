@@ -1,14 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{em-net-http}
-  s.version = "0.3.7"
+  s.name = %q{em-net-http-npn47}
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["James Fairbairn"]
-  s.date = %q{2011-09-12}
+  s.authors = ["James Fairbairn","Neeraj PN"]
+  s.date = %q{2012-11-05}
   s.description = %q{Monkeypatching Net::HTTP to use em-http-request under the hood.}
-  s.email = %q{james@netlagoon.com}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
@@ -30,7 +29,6 @@ Gem::Specification.new do |s|
     "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/jfairbairn/em-net-http}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.8.10}
   s.summary = %q{Non-blocking replacement for Net::HTTP, for use in EventMachine}
