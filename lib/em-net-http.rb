@@ -164,7 +164,7 @@ module Net
           end
           f.resume nhres
         }
-        httpreq.errback {|err|f.resume(:error)}
+        httpreq.errback {|err|f.resume(err)}
 
         nhres = yield_with_error_check(t0)
         nhres.instance_variable_set :@httpreq, httpreq
@@ -173,7 +173,7 @@ module Net
         nhres
       else
         httpreq.callback &convert_em_http_response
-        httpreq.errback {|err|f.resume(:error)}
+        httpreq.errback {|err|f.resume(err)}
 
         yield_with_error_check(t0)
       end
@@ -186,7 +186,7 @@ module Net
 
       if res == :error
         raise 'EM::HttpRequest error - request timed out' if Time.now - self.read_timeout > t0
-        raise 'EM::HttpRequest error - unknown error'
+        raise 'EM::HttpRequest error - unknown error #{ err.message } \n#{ err.backtrace.inspect}'
       end
 
       res
